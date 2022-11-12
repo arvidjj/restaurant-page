@@ -1,0 +1,176 @@
+@font-face {
+  font-family: "CafeRest";
+  src: url("resources/Cafe Francoise_D.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "CafeRest", "sharp_sans_display_no1bold", sans-serif;
+  letter-spacing: 2px;
+  color: white;
+  min-height: calc(100vh + 250px);
+  position: relative;
+  background-image: url(resources/background.jpg);
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.button {
+  background-color: #de3c31;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.button:hover {
+  background-color: rgb(180, 0, 0);
+}
+
+.fancy-button {
+  background-color: #f2c930;
+  color: black;
+}
+.fancy-button:hover {
+  background-color: #cfa200;
+}
+
+.important-button {
+  padding: 20px 30px;
+  font-size: 1.5rem;
+  transform: rotate(2deg);
+  font-family: "CafeRest", "sharp_sans_display_no1bold", sans-serif;
+}
+.important-button:hover {
+  transform: scale(1.1);
+}
+
+.navBar {
+  /*background-color: $main-background;*/
+  display: flex;
+}
+.navBar .logo {
+  margin-right: auto;
+}
+.navBar .logo img {
+  width: 100px;
+  height: auto;
+  transition: 0.3s;
+}
+.navBar .logo img:hover {
+  transform: rotate(15deg);
+}
+.navBar ul {
+  padding: 1rem;
+  display: flex;
+  gap: 10px;
+}
+@media only screen and (min-width: 1000px) {
+  .navBar {
+    max-width: 55rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navBar .logo img {
+    width: 180px;
+    height: auto;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.hero img {
+  width: 90vw;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.hero .heroText {
+  background-color: #de3c31;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+@media only screen and (min-width: 1000px) {
+  .hero {
+    background-color: #de3c31;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .hero .heroImage img {
+    width: 450px;
+    height: auto;
+  }
+  .hero .heroText {
+    width: 250px;
+    padding: 3rem;
+  }
+  .hero .heroText h2 {
+    font-size: 2rem;
+  }
+  .hero .heroText p {
+    font-size: 1.2rem;
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #de3c31;
+  padding: 2rem;
+  border-radius: 18px;
+}
+.info ul {
+  list-style: disc;
+}
+
+footer {
+  margin-top: 15px;
+  background-color: #de3c31;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-top: 3px solid var(--main-color);
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+footer p {
+  margin: 0;
+}/*# sourceMappingURL=style.css.map */
