@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/resolver-glob": "^2.8.0",
+    "@parcel/transformer-image": "^2.8.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
