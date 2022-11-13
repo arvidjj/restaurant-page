@@ -22,6 +22,11 @@ $small-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-style: normal;
 }
 
+@mixin readableFont {
+    font-family: $font-family-readable;
+    letter-spacing: normal;
+}
+
 @mixin devices ($breakpoint) {
     //the name of the mixin is devices
 
@@ -51,18 +56,19 @@ body {
     letter-spacing: 2px;
     color: $font-color;
     box-sizing: border-box;
-    min-height: calc(100vh + 250px);
-    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     background-image: url(resources/background.jpg);
     background-repeat: repeat;
     background-attachment: fixed;
 }
 
-.content {
+#content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    margin-bottom: 20px;
 }
 
 a {
@@ -181,19 +187,18 @@ ul {
     position: absolute;
 
     flex-direction: column;
-    height: 50vh;
-    width: 100%;
+    height: 40vh;
+    width: 90vw;
     background-color: $secondary-background;
     padding-top: 110px;
     margin: 0;
-    border-bottom: 3px solid $main-color;
+    border-bottom: 5px solid $main-color;
 
     li {
         margin: 20px;
         margin-right: 25px;
         align-self: flex-end;
 
-        a {}
     }
 }
 
@@ -230,7 +235,7 @@ main {
 
     .heroText {
         background-color: $main-background;
-        width: 100vw;
+        width: 93vw;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -278,28 +283,11 @@ main {
     }
 }
 
-footer {
-    margin-top: 15px;
-    background-color: $main-background;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: $small-shadow;
-    border-top: 3px solid var(--main-color);
-    padding: 1rem;
-
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    p {
-        margin: 0;
-    }
-}
-
 hr {
     border: 1px solid red;
 }
+
+/*MENU TAB*/
 .menu-info {
     color: $font-color-2;
     background-image: url(resources/white-background.jpg);
@@ -307,14 +295,16 @@ hr {
     background-attachment: fixed;
 
     padding: 1.2rem;
-    width: 100vw;
+    width: 95vw;
     margin: 0;
 
-    h2, h3 {
+    h2,
+    h3 {
         margin: 0.5rem;
     }
+
     h2 {
-        color:$main-color;
+        color: $main-color;
     }
 
     @include devices(desktop) {
@@ -324,13 +314,13 @@ hr {
 }
 
 #menu-item-container {
-    font-family: $font-family-readable;
-    letter-spacing: normal;
+    @include readableFont;
 
     display: grid;
-    grid-template-rows: 111px;
+    grid-template-rows: auto;
     grid-auto-flow: row;
     grid-template-rows: auto;
+    border-bottom: 1px solid rgb(138, 138, 138);
 
     /*padding: 1.5rem;*/
     .menu-item {
@@ -338,6 +328,7 @@ hr {
 
         background-color: $secondary-background;
         border: 1px solid rgb(138, 138, 138);
+        border-bottom: none;
         gap: 20px;
 
         .item-description {
@@ -364,12 +355,12 @@ hr {
         }
 
         .item-image {
-            border: 1px solid rgb(138, 138, 138);
+            border-right: 1px solid rgb(138, 138, 138);
             display: flex;
             height: 100%;
 
             img {
-                width: 120px;
+                width: 100px;
                 object-fit: contain;
             }
         }
@@ -381,14 +372,86 @@ hr {
         grid-template-rows: auto;
         gap: 15px;
 
+        border: none;
+
         .menu-item {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgb(138, 138, 138);
 
             .item-image {
                 img {
-                    width: 160px;
+                    width: 130px;
                 }
             }
         }
+    }
+}
+
+
+/*CONTACT TAB*/
+.contact-info {
+    padding: 1rem;
+    color: $font-color-2;
+    background-image: url(resources/white-background.jpg);
+    background-repeat: repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+    .contact-information {
+        display: flex;
+        flex-direction: column;
+
+        @include readableFont;
+
+        .information-phone {
+
+            h2 {
+                margin: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                margin: 0.2rem;
+                font-size: 1.4rem;
+            }
+
+            ul {
+                list-style-type: disc;
+            }
+        }
+
+        .information-location {
+            @include devices(desktop) {
+                h2 {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        @include devices(desktop) {
+            max-width: 50rem;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
+footer {
+    background-color: $main-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: $small-shadow;
+    border-top: 3px solid var(--main-color);
+    padding: 1rem;
+    margin-top: auto;
+
+    p {
+        margin: 0;
     }
 }

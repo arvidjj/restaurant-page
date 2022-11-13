@@ -1,7 +1,6 @@
 import { html, render } from 'lit-html';
 
 import * as itemController from '../menuItems.js';
-/*import * as images from "../resources/menuitems/*.jpg";*/
 
 function component() {
     const pageContent = document.querySelector('#content');
@@ -40,19 +39,26 @@ function renderItems() {
     console.log(itemController.itemsStored)
 
     itemController.itemsStored.forEach((item, index) => {
-        const itemCard = () => html`
-        <div class="menu-item" id="item-${index}">
+        const itemImage = require(`../resources/menuitems/${item.image}`)
+        const itemCard = document.createElement('div');
+
+        // <div class="menu-item" id="item-${index}">
+        // </div>
+        itemCard.classList.add('menu-item')
+        itemCard.setAttribute('id', `item-${index}`)
+
+        itemCard.innerHTML = `
             <div class="item-image">
-                <img src="${item.image}" alt="${item.title}" />
+                <img src="${itemImage}" alt="${item.title}" />
             </div>
             <div class="item-description">
                 <h3 id="food-title">${item.title}</h3>
                 <p id="food-description">${item.description}</p>
-                <p id="food-price">${item.price}</p>
-            </div>
-        </div>
+                <p id="food-price">${item.price} $</p>
+            </div>  
         `
-        render(itemCard(), menuItemContainer);
+        
+        menuItemContainer.appendChild(itemCard);
         console.log(`rendering ${index}`)
     })
 }

@@ -6,3 +6,5 @@ export default class menuItem {
         this.image = image
     }
 }
+
+//CAN ADD ANOTHER ATTRIBUTE "TYPE" TO CLASSIFY IN MENU CATEGORIES
